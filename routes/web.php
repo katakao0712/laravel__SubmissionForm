@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::group(['as' => 'form::'], function() {
+    
+       // 入力画面
+       Route::get('/input', ['as' => 'input', 'uses' => 'FormController@input']);
+       // 完了画面
+       Route::post('/save', ['as' => 'save', 'uses' => 'FormController@save']);
+    
+   });
